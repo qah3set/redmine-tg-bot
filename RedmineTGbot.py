@@ -44,7 +44,7 @@ def jobs_exist(name: str, context: CallbackContext) -> bool:
 
 
 def remove_jobs_if_exist(name: str, context: CallbackContext) -> None:
-    if jobs_exist(name, CallbackContext):
+    if jobs_exist(name, context):
         current_jobs = context.job_queue.get_jobs_by_name(name)
         for job in current_jobs:
             job.schedule_removal()
